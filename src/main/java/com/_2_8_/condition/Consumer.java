@@ -1,0 +1,33 @@
+package com._2_8_.condition;
+
+import java.util.Random;
+
+public class Consumer implements Runnable{
+
+	private Buffer buffer;
+
+	public Consumer(Buffer buffer) {
+		this.buffer = buffer;
+	}
+
+	@Override
+	public void run() {
+		
+		while(buffer.hasPendingLines()){
+			String line = buffer.get();
+			processLine(line);
+		}
+	}
+	
+	public void processLine(String line){
+		try{
+			Random random = new Random();
+			Thread.sleep(random.nextInt(100));
+		}catch(InterruptedException e){
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+}
