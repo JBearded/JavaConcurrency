@@ -1,7 +1,5 @@
 package com._1_4_.interrupted;
 
-import java.awt.Event;
-
 public class PrimeGenerator extends Thread{
 
 	@Override
